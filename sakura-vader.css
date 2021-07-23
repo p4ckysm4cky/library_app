@@ -156,7 +156,7 @@ textarea {
   .button[disabled], button[disabled], input[type="submit"][disabled], input[type="reset"][disabled], input[type="button"][disabled] {
     cursor: default;
     opacity: .5; }
-  .button:focus:enabled, .button:hover:enabled, button:focus:enabled, button:hover:enabled, input[type="submit"]:focus:enabled, input[type="submit"]:hover:enabled, input[type="reset"]:focus:enabled, input[type="reset"]:hover:enabled, input[type="button"]:focus:enabled, input[type="button"]:hover:enabled {
+ .button:hover:enabled, button:hover:enabled, input[type="submit"]:focus:enabled, input[type="submit"]:hover:enabled, input[type="reset"]:focus:enabled, input[type="reset"]:hover:enabled, input[type="button"]:focus:enabled, input[type="button"]:hover:enabled {
     background-color: #DA4453;
     border-color: #DA4453;
     color: #120c0e;
@@ -187,7 +187,7 @@ label, legend, fieldset {
 
 
 /* Changes I made */
-header {
+/* header {
   display: flex;
   padding: 20px;
 }
@@ -198,11 +198,11 @@ header {
 
 form {
   display: flex;
-  flex-wrap: wrap;
 }
 
 .inputWrap label {
   display: block;
+  white-space: nowrap;
 }
 
 .inputWrap {
@@ -217,4 +217,4 @@ form {
 
 .haveRead input[type="checkbox"] {
   margin: auto;
-}
+} */
