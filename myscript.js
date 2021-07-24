@@ -1,11 +1,18 @@
 const title = document.getElementById("Title");
 const author = document.getElementById("Author");
+const pages = document.getElementById("Pages")
 const status = document.getElementById("Status");
 const submit = document.getElementById("Submit");
 
 const table = document.getElementById("tableDisplay");
-let myLibrary = [];
 
+
+function resetForm() {
+    title.value = "";
+    author.value = "";
+    pages.value = "";
+    status.checked = false;
+}
 
 
 function Book(title, author, pages, hasRead) {
@@ -53,35 +60,30 @@ Book.prototype.addTr = function() {
     const removeBtn = document.createElement("input");
     removeBtn.type = "button";
     removeBtn.className = "removeBtn";
-    removeBtn.value = "remove";
+    removeBtn.value = "Remove";
     removeBtn.addEventListener("click", function(e) {
-        newRow.remove();
+        if (confirm(`Are you sure you want to delete ${self.title} by ${self.author}?`)){
+            newRow.remove();
+        }
+        
     });
     removeCell.appendChild(removeBtn);
-
-
 }
 
 
 
-
-const book1 = new Book("Hello", "Mike", 215, true)
-book1.addTr()
-
-
-
-// let newRow = table.insertRow();
-// let newTitleCell = newRow.insertCell();
-// newTitleCell.innerText = "The Warehouse";
-// let newAuthorCell = newRow.insertCell();
-// newAuthorCell.innerText = "Mike Pike"
-// let newPagesCell = newRow.insertCell();
-// newPagesCell.innerText = "213"
+submit.addEventListener("click" ,function(e) {
+    e.preventDefault()
+    if (title.value == "" || author.value == "") {
+        alert("You cannot have empty Title or Author.");
+    } else {
+        newBook = new Book(title.value, author.value, pages.value, status.checked);
+        newBook.addTr();
+        resetForm();
+    }
+    
+});
 
 
-// let newStatusCell = newRow.insertCell();
-// var btn = document.createElement('input');
-// btn.type = "button";
-// newStatusCell.appendChild(btn);
-// btn.value = "Read" 
+
 
